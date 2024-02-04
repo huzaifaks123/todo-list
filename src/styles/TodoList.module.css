@@ -1,0 +1,48 @@
+.listContainer{
+    margin: auto;
+    width: 80%;
+}
+.list{
+    color: #87238e;
+    background-color: #E9A8F2;
+    border: 2px solid #87238e;
+    border-radius: 10px;
+    margin-top: 12px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btnContainer{
+    margin-left: 0px;
+    margin-right: 10px;
+    width: 16%;
+    display: flex;
+    justify-content: space-between;
+}
+.text{
+    margin-left: 10px;
+    font-size: x-large;
+    display: flex;
+    width: 75%;
+    overflow: hidden;
+}
+.toggleButton{
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%);
+    cursor: pointer;
+    
+}
+.removeButton{
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.img{
+    width: 36px;
+}
