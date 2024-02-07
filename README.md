@@ -7,7 +7,7 @@ Todo List using react
 
 ## Features
 
-- ADDING A TODO : Simply add a new to by on add button.
+- ADDING A TODO : Simply add a new todo by pressing on add button.
 - TOGGLE TASK : You can toggle task between completed and pending easily.
 - DELETE TASK : Either task is completed successfully or you want to remove the incomplete task you can delete by clicking on bin logo.
 - NOTIFICATION : You will recieve on every action you perform.
