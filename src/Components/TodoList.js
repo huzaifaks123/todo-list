@@ -23,7 +23,7 @@ export default function TodoList() {
     // fetch API data on component mount
     useEffect(() => {
         dispatch(getTodoAsynkThunk())
-    }, [])
+    }, [dispatch])
 
     // function to remove task here
     function handleRemove(todo) {
@@ -54,8 +54,8 @@ export default function TodoList() {
                 <div className={styles.list} key={index}>
                     <div className={styles.text}>{todo.title}</div>
                     <div className={styles.btnContainer}>
-                        <div className={styles.toggleButton} onClick={() => handleStatus(todo)}><img className={styles.img} src={todo.completed ? "https://cdn-icons-png.flaticon.com/128/189/189677.png" : "https://cdn-icons-png.flaticon.com/128/7704/7704975.png"}></img></div>
-                        <div className={styles.removeButton} onClick={() => handleRemove(todo)}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/1828/1828843.png"></img></div>
+                        <div className={styles.toggleButton} onClick={() => handleStatus(todo)}><img className={styles.img} alt="status" src={todo.completed ? "https://cdn-icons-png.flaticon.com/128/189/189677.png" : "https://cdn-icons-png.flaticon.com/128/7704/7704975.png"}></img></div>
+                        <div className={styles.removeButton} onClick={() => handleRemove(todo)}><img className={styles.img} alt="remove" src="https://cdn-icons-png.flaticon.com/128/1828/1828843.png"></img></div>
                     </div>
                 </div>
             ))}
