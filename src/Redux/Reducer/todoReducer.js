@@ -13,7 +13,6 @@ const initialState = {
 export const getTodoAsynkThunk = createAsyncThunk(
     "getTodo/setState",
     () => {
-        console.log("called api")
         return axios.get("https://jsonplaceholder.typicode.com/todos")
     }
 )
@@ -34,13 +33,13 @@ export const postTodoAsynkThunk = createAsyncThunk(
         })
         return response.json()
     }
-)
-
-// update asynchronous data to API
-export const toggleTodoAsynkThunk = createAsyncThunk(
-    "toggleTodo/setState",
+    )
+    
+    // update asynchronous data to API
+    export const toggleTodoAsynkThunk = createAsyncThunk(
+        "toggleTodo/setState",
     async (payload) => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${payload.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 title: payload.id,
@@ -50,12 +49,22 @@ export const toggleTodoAsynkThunk = createAsyncThunk(
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
             },
-          })
+        })
         return response.json()
     }
-)
-
-// create required slice with reducer and actions
+    )
+    
+    // delete asynchronous data from API
+    export const deleteTodoAsynkThunk = createAsyncThunk(
+        "deleteTodo/setState",
+        async (payload) => {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${payload.id}`, {
+                method: 'DELETE',
+            });
+        }
+        )
+        
+        // create required slice with reducer and actions
 const todoSlice = createSlice({
     name: "todo",
     initialState,
@@ -73,15 +82,12 @@ const todoSlice = createSlice({
     // Using extra Reducer for fetching asynchronous data
     extraReducers: (builder) => {
         builder.addCase(getTodoAsynkThunk.fulfilled, (state, action) => {
-            console.log("extraReducers :-", action.payload.data)
             state.todos = [...action.payload.data]
         })
         .addCase(postTodoAsynkThunk.fulfilled, (state, action) => {
-            console.log("postTodo :-", action.payload)
             state.todos.push(action.payload)
         })
         .addCase(toggleTodoAsynkThunk.fulfilled, (state, action) => {
-            console.log("updateTodo :-", action.payload)
         })
     }
 })

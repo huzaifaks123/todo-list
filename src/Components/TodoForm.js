@@ -15,7 +15,7 @@ import { postTodoAsynkThunk } from "../Redux/Reducer/todoReducer";
 export default function TodoForm() {
 
     // define text var and input ref here
-    const [text, setText] = useState()
+    const [text, setText] = useState("")
     const inputRef = useRef()
 
     // create var to dispatch actions

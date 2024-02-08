@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // import required actions and selector from reducers
 import { caution, notify, warning } from "../Redux/Reducer/notificationReducer";
-import { getTodoAsynkThunk, todoSelector, toggleTodoAsynkThunk, removeTodo, toggleStatus } from "../Redux/Reducer/todoReducer"
+import { getTodoAsynkThunk, todoSelector, toggleTodoAsynkThunk, removeTodo, toggleStatus, deleteTodoAsynkThunk } from "../Redux/Reducer/todoReducer"
 
 // create TodoList component
 export default function TodoList() {
@@ -28,6 +28,7 @@ export default function TodoList() {
     // function to remove task here
     function handleRemove(todo) {
         dispatch(removeTodo(todo.title))
+        dispatch(deleteTodoAsynkThunk(todo))
         if (todo.completed) {
             dispatch(notify("Task Removed Successfully"))
         } else {

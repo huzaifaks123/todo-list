@@ -12,13 +12,13 @@ import TodoList from "./Components/TodoList";
 // maintain app component with global state
 function App() {
   return (
-    <Provider store={store}>
-      <body className={styles.app}>
+    <div className={styles.app}>
+      <Provider store={store}>
         <TodoForm />
         <TodoList />
         <ToastContainer />
-      </body>
-    </Provider>
+      </Provider>
+    </div>
   );
 }
 
