@@ -5,11 +5,11 @@ import styles from "../styles/TodoForm.module.css"
 import { useState, useRef } from "react";
 
 // import useful hooks from react-redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // import required actions and selector from reducers
 import { notify } from "../Redux/Reducer/notificationReducer";
-import { postTodoAsynkThunk, setTodo } from "../Redux/Reducer/todoReducer";
+import { postTodoAsynkThunk } from "../Redux/Reducer/todoReducer";
 
 // create TodoForm component
 export default function TodoForm() {
